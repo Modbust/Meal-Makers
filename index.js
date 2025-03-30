@@ -3,7 +3,8 @@ import {
   getAuth,
   onAuthStateChanged,
   GoogleAuthProvider,
-  signInWithPopup,
+  signInWithRedirect,
+  getRedirectResult,
   signOut,
 } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-auth.js";
 
@@ -46,29 +47,25 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
+getRedirectResult(auth)
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access Google APIs.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+
+    // The signed-in user info.
+    const user = result.user;
+    // IdP data available using getAdditionalUserInfo(result)
+    // ...
+  })
+  .catch((error) => {
+    console.log("Error signing in");
+  });
+
 window.addEventListener("load", function () {
   document.getElementById("sign-in").onclick = function () {
     if (auth.currentUser == null) {
-      signInWithPopup(auth, provider)
-        .then((result) => {
-          // This gives you a Google Access Token. You can use it to access the Google API.
-          const credential = GoogleAuthProvider.credentialFromResult(result);
-          const token = credential.accessToken;
-          // The signed-in user info.
-          const user = result.user;
-          // IdP data available using getAdditionalUserInfo(result)
-        })
-        .catch((error) => {
-          // Handle Errors here.
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          // The email of the user's account used.
-          const email = error.customData.email;
-          // The AuthCredential type that was used.
-          const credential = GoogleAuthProvider.credentialFromError(error);
-
-          console.log("Error signing in");
-        });
+      signInWithRedirect(auth, provider);
     }
   };
 

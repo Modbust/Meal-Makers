@@ -4,6 +4,7 @@ import {
   onAuthStateChanged,
   GoogleAuthProvider,
   signInWithRedirect,
+  signInWithPopup,
   getRedirectResult,
   signOut,
 } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-auth.js";
@@ -21,6 +22,7 @@ const app = initializeApp({
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 const user = auth.currentUser;
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
 var displayName;
 var email;
@@ -54,7 +56,23 @@ getRedirectResult(auth).catch((error) => {
 window.addEventListener("load", function () {
   document.getElementById("sign-in").onclick = function () {
     if (auth.currentUser == null) {
-      signInWithRedirect(auth, provider);
+      if (isMobile) {
+        signInWithRedirect(auth, provider);
+      } else {
+        signInWithPopup(auth, provider)
+          .then((result) => {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            // The signed-in user info.
+            const user = result.user;
+            // IdP data available using getAdditionalUserInfo(result)
+            // ...
+          })
+          .catch((error) => {
+            console.log("Error signing in");
+          });
+      }
     }
   };
 

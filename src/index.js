@@ -47,20 +47,9 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-getRedirectResult(auth)
-  .then((result) => {
-    // This gives you a Google Access Token. You can use it to access Google APIs.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-
-    // The signed-in user info.
-    const user = result.user;
-    // IdP data available using getAdditionalUserInfo(result)
-    // ...
-  })
-  .catch((error) => {
-    console.log("Error signing in");
-  });
+getRedirectResult(auth).catch((error) => {
+  console.log("Error signing in");
+});
 
 window.addEventListener("load", function () {
   document.getElementById("sign-in").onclick = function () {

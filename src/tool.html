@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meal Makers</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Forum&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js"
+      type="module"
+    ></script>
+    <script
+      src="https://www.gstatic.com/firebasejs/11.5.0/firebase-auth.js"
+      type="module"
+    ></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="index.js" type="module"></script>
+  </head>
+  <body>
+    <div id="menu-bar">
+      <img
+        onclick="location.href='index.html'"
+        id="logo"
+        src="media/images/logo.png"
+      />
+      <div onclick="location.href='index.html'" id="logo-text">Meal Makers</div>
+      <div id="dropdown">
+        <div>
+          <button class="menu-btn" id="sign-in">Sign In</button>
+          <img id="pfp" />
+        </div>
+        <div id="dropdown-content">
+          <button class="drop-btn" id="sign-out">Sign Out</button>
+        </div>
+      </div>
+    </div>
+    <div style="position: relative">
+      <img src="media/images/ingredients.png" id="header" />
+      <button id="title">Planner</button>
+    </div>
+    <div class="point-bg">
+      <div class="point-title">Ingredients</div>
+      <input
+        class="point-input"
+        type="text"
+        placeholder="Apples, Bananas, Carrots"
+      />
+    </div>
+  </body>
+</html>

@@ -15,10 +15,12 @@ body {
 .menu-btn {
   font-size: 30px;
   background-color: #00000000;
+  color: #000000;
   border-radius: 10px;
   transition: background-color 0.2s ease-in;
   margin: 10px;
   padding: 5px 10px;
+  text-decoration: none;
 }
 
 #logo {
@@ -122,10 +124,10 @@ body {
 }
 
 .point-title {
-  font-size: 6vw;
+  font-size: 3vw;
   color: #626262;
   border-right-width: 2px;
-  padding: 5%;
+  padding: 2%;
   margin: 2%;
   text-align: center;
   width: 30%;
@@ -133,16 +135,16 @@ body {
 }
 
 .point-detail {
-  font-size: 3vw;
+  font-size: 2vw;
   color: #626262;
   padding: 2vw;
   text-align: center;
-  width: 46%;
+  width: 56%;
   display: inline-block;
 }
 
 .point-input {
-  font-size: 20px;
+  font-size: 15px;
   color: #626262;
   padding: 2%;
   text-align: center;
@@ -172,10 +174,10 @@ body {
 .button {
   background-color: #c7c7c7;
   color: #000000;
-  padding: 3vw;
-  margin: 3vw;
+  padding: 1vw;
+  margin: 1vw;
   border-radius: 10px;
-  width: 50%;
+  width: 25%;
   height: 3vw;
   font-size: 3vw;
   transition: background-color 0.2s ease-in;

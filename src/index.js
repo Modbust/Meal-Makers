@@ -11,7 +11,7 @@ import {
 
 const app = initializeApp({
   apiKey: "AIzaSyAQTQFDmCje513tV_kkyMF2TyVeBz2fh6Q",
-  authDomain: "meal-makers.firebaseapp.com",
+  authDomain: "meal-makers.web.app",
   projectId: "meal-makers",
   storageBucket: "meal-makers.firebasestorage.app",
   messagingSenderId: "465895986321",
@@ -23,6 +23,9 @@ const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 const user = auth.currentUser;
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+if (isMobile) {
+}
 
 var displayName;
 var email;

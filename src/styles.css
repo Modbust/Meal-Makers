@@ -174,12 +174,12 @@ body {
 .button {
   background-color: #c7c7c7;
   color: #000000;
-  padding: 1vw;
-  margin: 1vw;
+  padding: 8px;
+  margin: 8px;
   border-radius: 10px;
-  width: 25%;
-  height: 3vw;
-  font-size: 3vw;
+  width: 30%;
+  height: auto;
+  font-size: 30px;
   transition: background-color 0.2s ease-in;
   -webkit-user-select: none;
   -ms-user-select: none;
